@@ -29,6 +29,7 @@
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "import/no-unresolved": "off",
+    "no-unused-vars":"error",
     "import/extensions": [
       "error",
       "ignorePackages",
