@@ -1,10 +1,13 @@
 module.exports = {
   roots: ['<rootDir>/src'],
+  collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx}',
-    '!**/*.d.ts',
-    '!<rootDir>/src/**/index.ts',
+    '!**/**/*.d.ts',
+    '!<rootDir>/src/index.tsx',
+    '!<rootDir>/src/App.tsx',
   ],
+  testPathIgnorePatterns: ['node_modules', '<rootDir>/src/index.tsx'],
   coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
   transform: {
@@ -14,10 +17,12 @@ module.exports = {
     '@/(.*)': '<rootDir>/src/$1',
   },
   coverageThreshold: {
-    branches: 85,
-    functions: 85,
-    lines: 85,
-    statements: 85,
+    global: {
+      branches: 85,
+      functions: 85,
+      lines: 85,
+      statements: 85,
+    },
   },
   setupFilesAfterEnv: ['./config/jest/setupTests.ts'],
 };
