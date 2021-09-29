@@ -1,7 +1,6 @@
 {
   "*.{ts,tsx}": [
     "eslint 'src/**' --fix",
-    "jest --passWithNoTests --findRelatedTests --coverage",
-    "git add"
+    "jest --passWithNoTests --findRelatedTests --coverage"
   ]
 }
