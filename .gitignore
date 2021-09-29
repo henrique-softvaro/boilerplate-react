@@ -1,0 +1,6 @@
+# System
+node_modules
+dist
+
+# Tests
+coverage
