@@ -5,7 +5,7 @@ public
 
 #Files
 *.scss
-
+sonar-project.js
 
 # Webpack
 webpack.common.js
