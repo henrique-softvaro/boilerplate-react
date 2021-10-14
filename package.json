@@ -2,7 +2,8 @@
   "name": "softvaro-boilerplate",
   "version": "1.0.0",
   "description": "boilerplate to smiles project",
-  "main": "index.js",
+  "main": "react-button/index.js",
+  "types": "dist/index.d.ts",
   "author": "Softvaro",
   "license": "ISC",
   "scripts": {
@@ -13,7 +14,7 @@
     "test:ci": "npm test -- --coverage",
     "test:staged": "npm run test:ci -- --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm run test:ci -- --watchAll",
-    "build": "webpack --config ./config/webpack/webpack.prod.js"
+    "build": "tsc --declaration"
   },
   "dependencies": {
     "react": "^17.0.2",

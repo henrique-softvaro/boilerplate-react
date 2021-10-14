@@ -1,9 +1,15 @@
 import React from 'react';
 
-export const Button = () => {
+export type buttonProps = {
+  onClick?: () => void;
+};
+
+export const Button = ({ onClick }: buttonProps) => {
   return (
     <div>
-      <button type="button">Click here!</button>
+      <button type="button" onClick={onClick}>
+        Click here!
+      </button>
     </div>
   );
 };
