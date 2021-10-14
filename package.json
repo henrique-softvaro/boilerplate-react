@@ -6,14 +6,14 @@
   "author": "Softvaro",
   "license": "ISC",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "webpack-dev-server --config ./config/webpack/webpack.dev.js",
     "lint": "eslint 'src/**'",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
     "test:ci": "npm test -- --coverage",
     "test:staged": "npm run test:ci -- --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm run test:ci -- --watchAll",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config ./config/webpack/webpack.prod.js"
   },
   "dependencies": {
     "react": "^17.0.2",

@@ -3,15 +3,15 @@ const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.tsx'),
+  entry: path.resolve(__dirname, '..', '..', 'src', 'index.tsx'),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', '..', 'dist'),
     filename: 'bundle.js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      '@': path.join(__dirname, 'src')
+      '@': path.resolve(__dirname, '..', '..', 'src')
     }
   },
   module: {
