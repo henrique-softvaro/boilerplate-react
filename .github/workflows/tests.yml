@@ -1,4 +1,4 @@
-name: Execução de testes regressivos
+name: PipelineTests
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  e2e-tests:
+  ci-tests:
     runs-on: ubuntu-latest
 
     steps:
