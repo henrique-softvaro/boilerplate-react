@@ -22,8 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run ci:build
-        run: npm run ci:build
-
       - name: Run tests
         run: npm run test:ci
