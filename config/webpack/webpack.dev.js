@@ -1,20 +1,32 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { merge } = require('webpack-merge');
+const { smart } = require('webpack-merge');
+const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 
-const common = require('./webpack.common');
+module.exports = (webpackConfigEnv, argv) => {
+  const defaultConfig = singleSpaDefaults({
+    orgName: 'smiles',
+    projectName: 'boiler-plate',
+    orgPackagesAsExternal: false,
+    webpackConfigEnv,
+    argv,
+  });
 
-module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'inline-source-map',
-  devServer: {
-    historyApiFallback: true,
-    port: 3000,
-    compress: true,
-    open: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './templates/template.dev.html'
-    })
-  ]
-})
+  console.log(defaultConfig);
+  delete defaultConfig.output.jsonpFunction;
+
+  return smart(defaultConfig, {
+    mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+      https: true,
+      port: 8506,
+    },
+    externals: [
+      'axios',
+      'lottie-web',
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'reactstrap',
+    ],
+  });
+};

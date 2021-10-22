@@ -1,18 +1,29 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { merge } = require('webpack-merge');
+const { smart } = require('webpack-merge');
 
-const common = require('./webpack.common');
+const outputPath = path.join(__dirname, `build/${pkg.projectName}/${pkg.version}`);
 
-module.exports = merge( common, {
-  mode: 'production',
-  devtool: 'source-map',
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './templates/template.prod.html'
-    }),
-  ]
-});
+module.exports = (webpackConfigEnv) => {
+  const defaultConfig = singleSpaDefaults({
+    orgName: 'smiles',
+    projectName: 'boiler-plate',
+    orgPackagesAsExternal: false,
+    disableHtmlGeneration: true,
+    webpackConfigEnv,
+  });
+
+  return smart(defaultConfig, {
+    mode: 'production',
+    devtool: false,
+    externals: [
+      'axios',
+      'lottie-web',
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'reactstrap',
+    ],
+    output: {
+      path: outputPath,
+    },
+  });
+};
